@@ -1,6 +1,6 @@
 # IID3-JS-TPs
 
 ## TP1
-
-outile CLI
-require (~~read line~~)
+interactive CLI with inquirer
+role based pokemon battle
+uses pokeapi.co for data
