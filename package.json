@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "express": "^5.1.0",
+    "inquirer": "^12.10.0",
+    "pug": "^3.0.3"
+  },
+  "name": "iid3-js-tps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "TP2-express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "TP1": "node TP1-Pokemon/index.js",
+    "TP2": "node TP2-express.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moad-cher/IID3-JS-TPs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moad-cher/IID3-JS-TPs/issues"
+  },
+  "homepage": "https://github.com/moad-cher/IID3-JS-TPs#readme"
+}

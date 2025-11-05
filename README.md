@@ -1,6 +1,5 @@
 # IID3-JS-TPs
 
-## TP1
-- interactive CLI with inquirer
-- role based pokemon battle
-- uses pokeapi.co for data
+in `package.json` u may find scripts like `TP1` and `TP2`  
+run with `npm run TP_` replacing `_` with a number
+
