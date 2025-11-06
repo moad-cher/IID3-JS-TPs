@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .max-w-md.mx-auto.bg-white.p-8.rounded.shadow
+    h2.text-xl.font-bold.mb-4 Login
+    form(action="/login" method="post" class="space-y-4")
+      label.block
+        span.text-sm Email
+        input(type="email" name="email" required class="mt-1 block w-full border-gray-300 rounded p-2")
+      label.block
+        span.text-sm Password
+        input(type="password" name="password" required class="mt-1 block w-full border-gray-300 rounded p-2")
+      button(type="submit" class="w-full py-2 bg-blue-600 text-white rounded") Login
+      p.text-sm.text-gray-600.mt-2 Don't have an account? 
+        a(href="/register" class="text-green-600") Register

@@ -1,8 +1,13 @@
 {
   "dependencies": {
-    "express": "^5.1.0",
-    "inquirer": "^12.10.0",
-    "pug": "^3.0.3"
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^7.5.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pug": "^3.0.3",
+    "inquirer": "^12.10.0"
   },
   "name": "iid3-js-tps",
   "version": "1.0.0",
@@ -11,7 +16,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "TP1": "node TP1-Pokemon/index.js",
-    "TP2": "node TP2-express.js"
+    "TP2": "node TP2-express.js/index.js"
   },
   "repository": {
     "type": "git",

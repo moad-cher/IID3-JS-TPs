@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title || 'App'
+    // Tailwind CDN for quick styling
+    script(src="https://cdn.tailwindcss.com")
+  body(class="bg-gray-100 min-h-screen")
+    nav(class="bg-white shadow")
+      .container.mx-auto.px-4.py-4.flex.justify-between.items-center
+        a(href="/" class="font-bold text-xl text-gray-800") MyBooks
+        if user
+          .flex.items-center.space-x-4
+            span.text-sm.text-gray-700 Hello #{user.name}
+            a(href="/books" class="text-sm text-blue-600") Books
+            a(href="/logout" class="text-sm text-red-600") Logout
+        else
+          .flex.items-center.space-x-4
+            a(href="/login" class="text-sm text-blue-600") Login
+            a(href="/register" class="text-sm text-green-600") Register
+
+    .container.mx-auto.px-4.py-8
+      if success_msg
+        .mb-4.p-3.bg-green-100.text-green-800.rounded= success_msg
+      if error_msg
+        .mb-4.p-3.bg-red-100.text-red-800.rounded= error_msg
+      if error
+        .mb-4.p-3.bg-red-100.text-red-800.rounded= error
+
+      block content
