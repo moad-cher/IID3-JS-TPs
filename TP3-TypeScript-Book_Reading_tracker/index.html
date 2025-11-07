@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Reading Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-purple-600 to-purple-900 min-h-screen p-6">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-4xl font-bold text-white text-center mb-8">📚 Book Reading Tracker</h1>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Left Column: Add/Edit Form -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-purple-600 mb-6">Add a New Book</h2>
+                <form id="book-form" class="space-y-4">
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Title</span>
+                        <input type="text" id="title" name="title" required class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Author</span>
+                        <input type="text" id="author" name="author" required class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Pages</span>
+                        <input type="number" id="pages" name="pages" min="1" required class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Status</span>
+                        <select id="status" name="status" required class="mt-1 block w-full rounded border p-2">
+                            <option value="Read">Read</option>
+                            <option value="Re-read">Re-read</option>
+                            <option value="DNF">DNF</option>
+                            <option value="Currently reading">Currently reading</option>
+                            <option value="Returned Unread">Returned Unread</option>
+                            <option value="Want to read">Want to read</option>
+                        </select>
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Price</span>
+                        <input type="number" id="price" name="price" step="0.01" min="0" required class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Pages Read</span>
+                        <input type="number" id="pages_read" name="pages_read" min="0" required class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Format</span>
+                        <select id="format" name="format" required class="mt-1 block w-full rounded border p-2">
+                            <option value="Print">Print</option>
+                            <option value="PDF">PDF</option>
+                            <option value="Ebook">Ebook</option>
+                            <option value="AudioBook">AudioBook</option>
+                        </select>
+                    </label>
+                    
+                    <label class="block">
+                        <span class="text-gray-700 font-medium">Suggested By</span>
+                        <input type="text" id="suggested_by" name="suggested_by" class="mt-1 block w-full rounded border p-2">
+                    </label>
+                    
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" id="finished" name="finished" class="rounded">
+                        <span class="text-gray-700 font-medium">Finished</span>
+                    </label>
+                    
+                    <div class="flex gap-2 mt-6">
+                        <input type="submit" value="Add Book" class="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700 cursor-pointer font-semibold">
+                        <button type="button" id="cancel-btn" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-gray-700 font-semibold hidden" onclick="cancelEdit()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Right Column: Books List -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold text-purple-600 mb-6">Your Books</h2>
+                <div id="books-list" class="space-y-4 max-h-96 overflow-y-auto mb-6"></div>
+                
+                <div class="bg-gradient-to-br from-purple-600 to-purple-900 text-white rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-3">📊 Global Statistics</h3>
+                    <p class="mb-2">Total Books Finished: <strong id="total-read">0</strong></p>
+                    <p>Total Pages Read: <strong id="total-pages">0</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
