@@ -110,20 +110,20 @@ def display_book(book):
     st.write(f"Format: {book['format']}")
     st.write(f"Finished: {'Yes' if book.get('finished') else 'No'}")
 
-    # actions: increment, decrement, set, edit, delete
+
     a3, a4= st.columns([1.5,1])
 
     with a3:
         # allow manual set of pages read
         new_val = st.number_input("Pages", min_value=0, max_value=pages if pages else None, value=pages_read, key=f"set_{id_str}", label_visibility="collapsed")
+        if st.button("Delete", key=f"del_{id_str}"):
+            model.delete_book(id_str)
+            st.rerun()
+    with a4:
         if st.button("Set", key=f"update_{id_str}"):
             # ensure bounds and set finished flag
             finished = pages and int(new_val) >= pages
             model.update_book(id_str, {"pages_read": int(new_val), "finished": bool(finished)})
-            st.rerun()
-    with a4:
-        if st.button("Delete", key=f"del_{id_str}"):
-            model.delete_book(id_str)
             st.rerun()
 
     st.write("---")
