@@ -132,6 +132,9 @@ with c2:
     st.header("Your Books")
     books = model.get_books()
     st.write(f"Total Books: {len(books)}\nTotal Pages Read: {sum(book['pages_read'] for book in books)}")
-    for book in books:
-        display_book(book)
+    
+    # Create a scrollable container for the book list
+    with st.container(height=800):
+        for book in books:
+            display_book(book)
 

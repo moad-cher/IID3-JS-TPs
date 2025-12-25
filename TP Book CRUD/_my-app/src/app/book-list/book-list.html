@@ -1,0 +1,27 @@
+<div class="container">
+    <h1>Book CRUD</h1>
+    <div class="header">
+        <h2>Your Books</h2>
+        <a routerLink="/books/create" class="btn btn-primary">Add New Book</a>
+    </div>
+
+    <div class="stats">
+        <p>Total Books: {{ books.length }}</p>
+    </div>
+
+    <div class="book-list">
+        <div *ngFor="let book of books" class="book-card">
+            <div class="book-header">
+                <h3>{{ book.title }}</h3>
+                <div class="book-actions">
+                    <a *ngIf="book.id" [routerLink]="['/books/edit', book.id]" class="btn btn-secondary">Edit</a>
+                    <button (click)="deleteBook(book.id!)" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+
+            <div class="book-details">
+                <p><strong>Author:</strong> {{ book.author }}</p>
+            </div>
+        </div>
+    </div>
+</div>

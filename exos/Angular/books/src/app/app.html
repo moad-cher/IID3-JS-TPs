@@ -1,0 +1,62 @@
+<div class="container">
+  <h1>Welcome to the Book App!</h1>
+</div>
+@if (isLoggedIn) {
+<div class="container">
+  <h2>Books</h2>
+  <ul>
+    @for (book of books; track $index) {
+    <li>{{ book.name | nameTransformer }} ({{ book.year }})</li>
+    }
+  </ul>
+</div>
+}
+
+<div class="container">
+  <h2>Login Form</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username">
+      @if (form.get('username')?.invalid && form.get('username')?.touched) {
+      <div class="error">
+        @if (form.get('username')?.errors?.['required']) {
+        Username is required.
+        }
+        @if (form.get('username')?.errors?.['minlength']) {
+        Username must be at least 3 characters.
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email">
+      @if (form.get('email')?.invalid && form.get('email')?.touched) {
+      <div class="error">
+        @if (form.get('email')?.errors?.['required']) {
+        Email is required.
+        }
+        @if (form.get('email')?.errors?.['email']) {
+        Please enter a valid email.
+        }
+      </div>
+      }
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password">
+      @if (form.get('password')?.invalid && form.get('password')?.touched) {
+      <div class="error">
+        @if (form.get('password')?.errors?.['required']) {
+        Password is required.
+        }
+        @if (form.get('password')?.errors?.['minlength']) {
+        Password must be at least 6 characters.
+        }
+      </div>
+      }
+    </div>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
+  </form>
+</div>
